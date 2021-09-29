@@ -4,6 +4,8 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
+import junit.framework.Assert;
+
 public class EmployeePayrollServiceTest {
 	/**
 	 * test case to check database connected or not
@@ -27,5 +29,17 @@ public class EmployeePayrollServiceTest {
 	public void givenEmployeePayrollDatabase_ShouldRetrieveData() throws ClassNotFoundException, SQLException {
 		EmployeePayrollService employeePayrollService = new EmployeePayrollService();
 		employeePayrollService.selectData();
+	}
+
+	/**
+	 * test case to update the salary
+	 * @throws EmployeePayrollException 
+	 */
+	@Test
+	public void givenEmployeePayrollDatabase_ShouldUpdateSalary() throws EmployeePayrollException {
+		EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+		boolean result = employeePayrollService.updateSalary();
+		Assert.assertTrue(result);
+
 	}
 }
