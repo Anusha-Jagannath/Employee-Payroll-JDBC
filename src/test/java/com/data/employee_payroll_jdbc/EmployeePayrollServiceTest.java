@@ -161,4 +161,15 @@ public class EmployeePayrollServiceTest {
 		employeePayrollService.retrieveCount();
 
 	}
+	/**
+	 * test cases to add employee add to the database
+	 * @throws EmployeePayrollException 
+	 */
+	@Test
+	public void givenEmployeePayrollDatabase_ShouldAddEmployeeToDatabase() throws EmployeePayrollException {
+		EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+		boolean result = employeePayrollService.insertData();
+		System.out.println(result);
+		Assert.assertTrue(result);
+	}
 }
