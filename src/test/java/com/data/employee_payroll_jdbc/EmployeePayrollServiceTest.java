@@ -42,4 +42,16 @@ public class EmployeePayrollServiceTest {
 		Assert.assertTrue(result);
 
 	}
+	
+	/**
+	 * test case to update the salary using prepared statement
+	 * @throws EmployeePayrollException 
+	 */
+	@Test
+	public void givenEmployeePayrollDatabase_ShouldUpdateSalaryUsingPreparedStatement() throws EmployeePayrollException {
+		EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+		boolean result = employeePayrollService.updateSalaryPrepared();
+		Assert.assertTrue(result);
+
+	}
 }

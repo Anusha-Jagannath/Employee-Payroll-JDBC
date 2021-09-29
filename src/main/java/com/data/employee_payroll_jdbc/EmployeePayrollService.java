@@ -2,6 +2,7 @@ package com.data.employee_payroll_jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -95,6 +96,27 @@ public class EmployeePayrollService {
 
 		return success;
 
+	}
+
+	public boolean updateSalaryPrepared() throws EmployeePayrollException {
+		
+		Connection connection;
+		boolean success = false;
+		try {
+			connection = getConnection();
+			Statement statement = connection.createStatement();
+			PreparedStatement preparedStatement = connection.prepareStatement("update employee_payroll set salary=? where name=?");
+			preparedStatement.setDouble(1, 300000);
+			preparedStatement.setString(2, "Tersia");
+			success = true;
+		} catch (ClassNotFoundException e) {
+			throw new EmployeePayrollException("class not found");
+		} catch (SQLException e) {
+			throw new EmployeePayrollException("sql exception");
+		}
+
+		return success;
+		
 	}
 
 }
